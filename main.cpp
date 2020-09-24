@@ -30,6 +30,7 @@ void renderPixel(int x, int y) {
 	image[x][y] = 1;
   image[y][x] = 1;
   image[size - x][y] = 1;
+  image[size - y][x] = 1;
 }
 
 void rasterizeArc(int radius) {
