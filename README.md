@@ -1,1 +1,2 @@
-# hw1
+g++ main.cpp
+./a.out 300
