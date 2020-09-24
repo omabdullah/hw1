@@ -33,28 +33,63 @@ void renderPixel(int x, int y) {
   image[size - y][x] = 1;
 }
 
-void rasterizeArc(int radius) {
-int x = 150;
-int y = radius + x;
-int d = 1 - radius;
-int deltaE = 3;
-int deltaSE = -2 * radius + 5;
-renderPixel(x,y);
+void renderPixeltwo(int x, int y) {
+	assert(x >= 0 && y >= 0 && x <= 300 && y <= 300);
+	image[x][y] = 1;
+  image[y][x] = 1;
+  image[x][size - y] = 1;
+  image[y][size - x] = 1;
+}
 
-while (y > x){
-  if (d < 0){
+void rasterizeArc(int radius) {
+  if (radius == 100){
+  int x = 150;
+  int y = radius + x;
+  int d = 1 - radius;
+  int deltaE = 3;
+  int deltaSE = -2 * radius + 5;
+  renderPixel(x,y);
+
+  while (y > x){
+    if (d < 0){
     d += deltaE;
     deltaE += 2;
     deltaSE += 2;
-  }
-  else{
+    }
+   else{
     d += deltaSE;
     deltaE += 2;
     deltaSE += 4;
     y--;
+    }
+    x++;
+    renderPixel(x,y);
+}
   }
-  x++;
-  renderPixel(x,y);
+
+else{
+    int x = 150;
+  int y = radius + x;
+  int d = 1 - radius;
+  int deltaE = 3;
+  int deltaSE = -2 * radius + 5;
+  renderPixeltwo(x,y);
+
+  while (y > x){
+    if (d < 0){
+    d += deltaE;
+    deltaE += 2;
+    deltaSE += 2;
+    }
+   else{
+    d += deltaSE;
+    deltaE += 2;
+    deltaSE += 4;
+    y--;
+    }
+    x++;
+    renderPixeltwo(x,y);
+}
 }
 }
 
