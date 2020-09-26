@@ -25,21 +25,23 @@ using namespace std;
 int size;
 bool **image;
 
-void renderPixel(int x, int y) {
-	assert(x >= 0 && y >= 0 && x <= 300 && y <= 300);
+void renderPixel(int x, int y, int radius) {
+	assert(x >= 0 && y >= 0 && x <= size && y <= size);
+  if (radius == 100){
 	image[x][y] = 1;
   image[y][x] = 1;
   image[size - x][y] = 1;
   image[size - y][x] = 1;
-}
-
-void renderPixeltwo(int x, int y) {
-	assert(x >= 0 && y >= 0 && x <= 300 && y <= 300);
+  }
+  else{
 	image[x][y] = 1;
   image[y][x] = 1;
   image[x][size - y] = 1;
   image[y][size - x] = 1;
+  }
 }
+
+
 
 void rasterizeArc(int radius) {
   int x = 150;
@@ -47,12 +49,8 @@ void rasterizeArc(int radius) {
   int d = 1 - radius;
   int deltaE = 3;
   int deltaSE = -2 * radius + 5;
-  if (radius == 100){
-  renderPixel(x,y);
-  }
-  else{
-    renderPixeltwo(x, y);
-  }
+  renderPixel(x,y, radius);
+
   while (y > x){
     if (d < 0){
     d += deltaE;
@@ -66,12 +64,7 @@ void rasterizeArc(int radius) {
     y--;
     }
     x++;
-    if (radius == 100){
-    renderPixel(x,y);
-    }
-    else{
-    renderPixeltwo(x, y);
-    }
+    renderPixel(x,y, radius);
     }
 }
 
