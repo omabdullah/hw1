@@ -42,39 +42,17 @@ void renderPixeltwo(int x, int y) {
 }
 
 void rasterizeArc(int radius) {
-  if (radius == 100){
   int x = 150;
   int y = radius + x;
   int d = 1 - radius;
   int deltaE = 3;
   int deltaSE = -2 * radius + 5;
+  if (radius == 100){
   renderPixel(x,y);
-
-  while (y > x){
-    if (d < 0){
-    d += deltaE;
-    deltaE += 2;
-    deltaSE += 2;
-    }
-   else{
-    d += deltaSE;
-    deltaE += 2;
-    deltaSE += 4;
-    y--;
-    }
-    x++;
-    renderPixel(x,y);
-}
   }
-
-else{
-    int x = 150;
-  int y = radius + x;
-  int d = 1 - radius;
-  int deltaE = 3;
-  int deltaSE = -2 * radius + 5;
-  renderPixeltwo(x,y);
-
+  else{
+    renderPixeltwo(x, y);
+  }
   while (y > x){
     if (d < 0){
     d += deltaE;
@@ -88,9 +66,13 @@ else{
     y--;
     }
     x++;
-    renderPixeltwo(x,y);
-}
-}
+    if (radius == 100){
+    renderPixel(x,y);
+    }
+    else{
+    renderPixeltwo(x, y);
+    }
+    }
 }
 
 
