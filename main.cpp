@@ -8,10 +8,11 @@
  * Then, run the program as follows:                   *
  *        ./a.out 200                                  *
  * to generate a 200x200 image containing a circular   *
- * arc. 
+ * arc. 					       *
  * Your code will generate a .ppm file containing the  *
  * final image. These images can be viewed using       *
  * "display" in Linux or Irfanview in Mac/Windows.     *
+ * code source from reading pdf 		       *
  *******************************************************/
 
 #include <iostream>
