@@ -10,4 +10,11 @@ The details of the project are as follows: The two semi-circles will be created 
 
 As aforementioned, a ppm file will be generated, displaying two semicircles, one being 150 radius and the other being 100 radius. The larger will be on the top two quadrants, reflecting to the top of the X axis, while the smaller will be on the right two quadrants, reflecting to the right of the Y axis.
 
+The result will appear as the following:    
+![Result](https://i.imgur.com/Bu0A5JX.png "Optional title")
+
+
+
+
 References for code were taken from the last algorithm written in the reading document given with the assignment.
+
